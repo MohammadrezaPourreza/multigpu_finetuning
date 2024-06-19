@@ -119,7 +119,7 @@ def training_function(script_args, training_args):
     model = AutoModelForCausalLM.from_pretrained(
         script_args.model_id,
         quantization_config=quantization_config,
-        attn_implementation="flash_attention_2",
+        #attn_implementation="flash_attention_2",
         torch_dtype=quant_storage_dtype,
         use_cache=(
             False if training_args.gradient_checkpointing else True

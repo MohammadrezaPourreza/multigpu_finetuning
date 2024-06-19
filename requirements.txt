@@ -9,7 +9,6 @@ datasets
 trl
 git-lfs
 wandb
-flash-attn
 scipy
 gdown
 hf_transfer
