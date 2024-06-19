@@ -1,0 +1,16 @@
+accelerate
+argparse
+sentencepiece
+bitsandbytes
+peft
+huggingface_hub
+transformers
+datasets
+trl
+git-lfs
+wandb
+flash-attn
+scipy
+gdown
+hf_transfer
+argparse
