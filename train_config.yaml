@@ -1,5 +1,5 @@
 model_id: "mistralai/Codestral-22B-v0.1" #Hugging Face model id
-max_seq_len:  2048 # 2048              # max sequence length for model and packing of the dataset
+max_seq_length:  2048 # 2048              # max sequence length for model and packing of the dataset
 train_dataset_path: "MrezaPRZ/synthetic_sql_queries_sample" # path to where SageMaker saves train dataset
 hub_path: "MrezaPRZ/cdestral_synthetic_data_sqlite" # path to where SageMaker saves hub dataset
 output_dir: "./NL2SQL"            # path to where SageMaker will upload the model 
