@@ -14,6 +14,7 @@ from transformers import (
 )
 from peft import LoraConfig
 from trl import SFTTrainer,DataCollatorForCompletionOnlyLM
+from trl.trainer import SFTConfig
 
 # ACCELERATE_USE_FSDP=1 FSDP_CPU_RAM_EFFICIENT_LOADING=1 torchrun --nproc_per_node=4 finetuning_script.py --config train_config.yaml
 
@@ -195,7 +196,7 @@ def training_function(script_args, training_args):
 
 
 if __name__ == "__main__":
-    parser = TrlParser((ScriptArguments, TrainingArguments))
+    parser = TrlParser((ScriptArguments, SFTConfig))
     script_args, training_args = parser.parse_args_and_config()
 
     # set use reentrant to False
