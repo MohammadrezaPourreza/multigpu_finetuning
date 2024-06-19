@@ -178,6 +178,9 @@ def training_function(script_args, training_args):
         trainer.accelerator.state.fsdp_plugin.set_state_dict_type("FULL_STATE_DICT")
     trainer.save_model(training_args.output_dir)
 
+    if trainer.accelerator.is_main_process:
+        print("Training completed")
+
     del model
     del trainer
     torch.cuda.empty_cache()  # Clears the cache
