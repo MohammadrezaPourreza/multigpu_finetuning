@@ -158,6 +158,7 @@ def training_function(script_args, training_args):
         data_collator=collator,
         tokenizer=tokenizer,
         args=training_args,
+        max_seq_length=script_args.max_seq_length,
     )
     if trainer.accelerator.is_main_process:
         trainer.model.print_trainable_parameters()
@@ -196,7 +197,7 @@ def training_function(script_args, training_args):
 
 
 if __name__ == "__main__":
-    parser = TrlParser((ScriptArguments, SFTConfig))
+    parser = TrlParser((ScriptArguments, TrainingArguments))
     script_args, training_args = parser.parse_args_and_config()
 
     # set use reentrant to False
