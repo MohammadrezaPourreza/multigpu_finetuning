@@ -17,6 +17,7 @@ from trl import SFTTrainer,DataCollatorForCompletionOnlyLM
 from trl.trainer import SFTConfig
 
 # ACCELERATE_USE_FSDP=1 FSDP_CPU_RAM_EFFICIENT_LOADING=1 torchrun --nproc_per_node=4 finetuning_script.py --config train_config.yaml
+# accelerate launch --num_processes=4 finetuning_script.py --config train_config.yaml
 
 @dataclass
 class ScriptArguments:
