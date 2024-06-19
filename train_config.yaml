@@ -3,7 +3,7 @@ max_seq_length:  2048 # 2048              # max sequence length for model and pa
 train_dataset_path: "MrezaPRZ/synthetic_sql_queries_sample" # path to where SageMaker saves train dataset
 hub_path: "MrezaPRZ/cdestral_synthetic_data_sqlite" # path to where SageMaker saves hub dataset
 output_dir: "./NL2SQL"            # path to where SageMaker will upload the model 
-sample_size: 10
+sample_size: 128
 # training parameters
 hub_token: "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"
 report_to: "tensorboard"               # report metrics to tensorboard
