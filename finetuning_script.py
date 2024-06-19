@@ -105,8 +105,8 @@ def training_function(script_args, training_args):
     training_args.distributed_state.wait_for_everyone()  # wait for all processes to print
 
     # Model
-    torch_dtype = torch.bfloat16
-    quant_storage_dtype = torch.bfloat16
+    torch_dtype = torch.float32
+    quant_storage_dtype = torch.float32
 
     quantization_config = BitsAndBytesConfig(
         load_in_4bit=True,
