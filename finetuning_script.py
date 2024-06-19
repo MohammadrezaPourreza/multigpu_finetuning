@@ -32,6 +32,9 @@ class ScriptArguments:
     hub_path: str = field(
         default=None, metadata={"help": "Path to the hub"}
     )
+    sample_size: int = field(
+        default=None, metadata={"help": "Number of samples to use for training"}
+    )
 
 
 def merge_and_save_model(model_id, adapter_dir, hub_path):
@@ -55,8 +58,9 @@ def training_function(script_args, training_args):
     ################
 
     dataset = load_dataset(script_args.train_dataset_path)
-    random_indices = random.sample(range(len(dataset['train'])), 10)
-    dataset['train'] = dataset['train'].select(random_indices)
+    if script_args.sample_size:
+        random_indices = random.sample(range(len(dataset['train'])), script_args.sample_size)
+        dataset['train'] = dataset['train'].select(random_indices)
     dataset = dataset['train'].train_test_split(test_size=0.01, shuffle=True)
     dataset = DatasetDict({'train': dataset['train'], 'validation': dataset['test']})
 
